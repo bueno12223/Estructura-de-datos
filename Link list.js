@@ -37,6 +37,11 @@ class queue {
         this.head.prev = newNode
         this.head = newNode
         this.lenght++
+    }
+    searhIndex(index){
+    for( let i = 0; i < index; i++ ){
+        this.head = this.head.next
+    }
 }
 }
 
