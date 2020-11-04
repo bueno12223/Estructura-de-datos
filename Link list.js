@@ -38,6 +38,14 @@ class queue {
         this.head = newNode
         this.lenght++
     }
+    insert(index, value){
+        let newNode = new Node(value)
+        let indice = this.searhIndex(index -1)
+        let pointer = this.indice.next
+       this.indice.next = newNode
+       this.newNode.next = pointer
+       this.lenght++  
+    }
     searhIndex(index){
     for( let i = 0; i < index; i++ ){
         this.head = this.head.next
