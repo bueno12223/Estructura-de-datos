@@ -35,3 +35,21 @@ La computadora sabe de dónde a donde esta cada información o en este caso el n
     - Los espacios anteriores los libera
 
 Es posible terminar o llenar una memoria con un array dinánimo
+
+## String
+
+son datos inmutables, es decir no se pueden modificar, es decir si tenemos un `var x = "hola"` este se guardará como un array
+
+![https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0026-887fd846-664a-4beb-ba3b-07df1309ebbf.jpg](https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0026-887fd846-664a-4beb-ba3b-07df1309ebbf.jpg)
+
+# Hash Table
+
+Las Hash Table funcionan similar a un Array, solo que en vez de índices numéricos se tienen índices o keys en caracteres, entonces es necesario una función intermedia que convierte el key en caracteres en índice numérico.
+
+La diferencia es que tienen un paso extra que se convierte en caja negra la cual es una **hash function** Funciona de una manera similar a los arreglos debido a que accedemos a través de un numero
+
+[Copy of Métodos](https://www.notion.so/3962bc2d237c43db95fcb11d56b7084d)
+
+### Colisión de Hash Table
+
+En ocasiones podemos pasar un key distintito puede generar el mismo hash colisionando con el anterior. Esto podrá depender de la cantidad de espacio disponible
