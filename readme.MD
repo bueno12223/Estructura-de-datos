@@ -53,3 +53,11 @@ La diferencia es que tienen un paso extra que se convierte en caja negra la cual
 ### Colisión de Hash Table
 
 En ocasiones podemos pasar un key distintito puede generar el mismo hash colisionando con el anterior. Esto podrá depender de la cantidad de espacio disponible
+
+## ejemplos
+
+Algunos buenos hash para backend
+
+- **uuid** [https://www.npmjs.com/package/uuid](https://www.npmjs.com/package/uuid)
+- **bcrypt** [https://www.npmjs.com/package/bcrypt](https://www.npmjs.com/package/bcrypt)
+- **shortid** [https://www.npmjs.com/package/shortid](https://www.npmjs.com/package/shortid)
