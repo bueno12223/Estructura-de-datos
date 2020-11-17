@@ -61,3 +61,30 @@ Algunos buenos hash para backend
 - **uuid** [https://www.npmjs.com/package/uuid](https://www.npmjs.com/package/uuid)
 - **bcrypt** [https://www.npmjs.com/package/bcrypt](https://www.npmjs.com/package/bcrypt)
 - **shortid** [https://www.npmjs.com/package/shortid](https://www.npmjs.com/package/shortid)
+
+Linked List son simplemente un conjunto de nodos ordenados que contienen los valores que necesitemos (numbers, strings, boolean, etc). Cada uno tiene un valor y una referencia a un siguiente nodo.
+
+![https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0038-df338d63-caf1-4bcb-86c2-f8cd72e9db73.jpg](https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0038-df338d63-caf1-4bcb-86c2-f8cd72e9db73.jpg)
+
+### Métodos
+
+- Prepend ⇒ Agregar un nodo al inicio
+- Append ⇒ Agregar un nodo al final
+- Lookup / Search ⇒ Buscar un nodo
+- Insert ⇒ insertar un nodo en la lista
+- Delete ⇒ Borrar un nodo
+
+### Singly Linked List 🔗
+
+Tenemos un nodo, Se compone de dos factores
+
+- Valor
+- Valor del Next
+
+![https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0041-11c13a63-e3f2-4978-af91-aa1281aa6d9d.jpg](https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0041-11c13a63-e3f2-4978-af91-aa1281aa6d9d.jpg)
+
+Si deseamos llegar a algún lugar, debemos empezar del Head hasta el lugar especificado
+
+No podemos regresar una vez hemos avanzado en un lugar, sera necesario volver a hacer otro recorrido desde el HEAD
+
+Lo característico de esta lista es que sus valores están relacionados con su nodo actual y el siguiente
