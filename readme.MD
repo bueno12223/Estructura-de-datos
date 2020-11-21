@@ -88,3 +88,102 @@ Si deseamos llegar a algún lugar, debemos empezar del Head hasta el lugar espec
 No podemos regresar una vez hemos avanzado en un lugar, sera necesario volver a hacer otro recorrido desde el HEAD
 
 Lo característico de esta lista es que sus valores están relacionados con su nodo actual y el siguiente
+
+## doubly linked list 🔗
+
+tiene el mismo comportamiento que una simply linked list, pero con la particularidad de que esta SI puede regresar. Aún necesita ir moviéndose una por una, pero ahora si lo desea puede regresar porque ya conoce quién es su elemento anterior y también quién es el siguiente, es decir, ya no es necesario repetir el ciclo.
+
+![https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0048-79182a24-5d63-4cce-9c4e-b57a1603b0f7.jpg](https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0048-79182a24-5d63-4cce-9c4e-b57a1603b0f7.jpg)
+
+- Tiene tres valores, los que ya conocemos
+    - Value
+    - Next
+- El que caracteriza es el valor **previo**
+    - Prev
+- Esto nos ayuda si es que deseamos buscar un valor en particular nos evita volver a recorrer la estructura
+    - Es decir que para buscar cosas es más rápido
+- La forma en la que se guarda en memoria los objetos es similar a singly pero con dos direcciones
+
+> ¿Cómo se guarda esto en memoria?
+
+![https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0049-773eaa22-d463-4820-a8f0-f915cb4aef31.jpg](https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0049-773eaa22-d463-4820-a8f0-f915cb4aef31.jpg)
+
+un nodo conoce su previo y anterior
+
+**¿como se ve esto?**
+
+```jsx
+class Node {
+	constructor(value) {
+		this.value = value;
+		this.next = null;
+		this.prev = null; // ahora hay un nuevo valor llamado prev
+	}
+}
+
+class MyDoubleLinkedList {
+	constructor(value) {
+		this.head = {
+			value: value,
+			next: null,
+			prev: null // como solo ingresamos uno no hay prev
+		}
+		this.tail = this.head;
+		this.length = 1;
+	}
+	append(value) {
+		const newNode = new Node(value);
+		newNode.prev = this.tail; // en esta linea de codigo el
+	// head aun es el valor previo
+		this.tail.next = newNode;
+		this.tail = newNode;
+
+		this.length++;
+
+		return this;
+	}
+
+	prepend(value) {
+		const newNode = new Node(value);
+		if (this.head) {
+			this.head.prev = newNode;
+			newNode.next = this.head
+		} else {
+			this.tail = newNode;
+		}
+
+		this.head = newNode;
+
+		this.length++;
+		return this;
+	}
+
+	deleteFirst() {
+		if (!this.head) { return null }
+
+		this.head = this.head.next;
+		if (this.head) {
+			this.head.prev = null;
+		} else {
+			this.tail = null;
+
+		}
+		this.length--;
+		return this;
+	}
+
+	deleteLast() {
+		if (!this.tail) { return null }
+		this.tail = this.tail.prev;
+		if (this.tail) {
+			this.tail.next = null;
+		} else {
+			this.head = null;
+		}
+		this.length--;
+		return this;
+	}
+
+}
+let myDoublyLinkedList = new MyDoubleLinkedList(1);
+```
