@@ -187,3 +187,45 @@ class MyDoubleLinkedList {
 }
 let myDoublyLinkedList = new MyDoubleLinkedList(1);
 ```
+
+# Stack 🧦
+
+básicamente es una pila, es decir, algo que estás apilando, lo primero que entra se queda hasta abajo y lo último que entra se queda hasta arriba, de ahí su nombre LIFO, Las In (El último que entra), First Out (Es el primero que sale).
+
+![https://static.platzi.com/media/user_upload/Post%20Instagram%20%2816%29-df8cddab-7877-455b-b38e-3d11bae157f1.jpg](https://static.platzi.com/media/user_upload/Post%20Instagram%20%2816%29-df8cddab-7877-455b-b38e-3d11bae157f1.jpg)
+
+> **¿Cómo se ve esto en código?**
+
+```jsx
+class Node {
+    constructor(value){
+        this.value = value
+        this.prev = null
+    }
+}
+
+class Stack{
+    constructor(){
+        this.top = null
+        this.bot = null
+        this.lenght = 0
+    }
+
+    push(value){
+        let newNode = new Node(value)
+        if (this.lenght == 0){
+            this.bot = newNode
+        }
+        newNode.prev = this.top
+        this.top = newNode
+        this.lenght++
+        return this
+    }
+}
+```
+
+Creamos una clase con los valores de *top bottom y length*  que indican cual esta arriba cual abajo y cuan largo es este
+
+luego creamos el metodo **push** que se le pasa un valor, verificamos si el stack esta vacio, si es así el top y el bottom es este valor y largo = 1
+
+en caso que no este valor lo pasamos por node para que tenga su next luego le damos un proposito a esta variable para que no se borre, decimos que el top ahora es este nuevo valor y acabamos
