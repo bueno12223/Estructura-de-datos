@@ -229,3 +229,98 @@ Creamos una clase con los valores de *top bottom y length*  que indican cual est
 luego creamos el metodo **push** que se le pasa un valor, verificamos si el stack esta vacio, si es así el top y el bottom es este valor y largo = 1
 
 en caso que no este valor lo pasamos por node para que tenga su next luego le damos un proposito a esta variable para que no se borre, decimos que el top ahora es este nuevo valor y acabamos
+
+# Queues 🚶‍♂️
+
+Una **cola** o **queue** es una estructura de datos muy similar a una Pila. Cuando usamos una Pila, ésta opera con una modalidad LIFO (Last In First Out), mientras que con una Cola es **FIFO** (**First In First Out**), es decir, siempre el primer elemento que agreguemos, será el primero que saquemos de ella.
+
+> Ejemplo: Un escenario común es cuando vamos al banco, Llegamos y lo primero que haces es tomar un turno, inmediatamente nos damos cuenta que ya había 10 personas primero que tú por lo que automáticamente deduces que ellos serán atendidos primero que tú. Si nos damos cuenta en este escenario el primer cliente que llego y solicito un turno sera el que sea atendido primero y tú que llegaste al último serás atendido hasta el final.
+
+Tenemos diferentes métodos para trabajar con el primer elemento, es decir el que entra y sale
+
+- Enqueue ⇒ Agregar un elemento al final de la línea
+- Dequeue ⇒ Remover el primer elemento de la línea
+- Peek ⇒ Tomar el primer elemento de la línea
+
+```jsx
+class Nodo {
+    constructor(valor) {
+        this.value = valor;
+        this.next = null;
+    }
+}
+
+class Cola{
+    constructor () {
+        // Elemento Superior
+        this.top = null;
+        // Elemento Inferior
+        this.bottom = null;
+
+        this.length = 0;
+    }
+
+    // Seleccionar el primer ingresado
+    peek () {
+        return this.bottom;
+    }
+
+    // Agregar al final de la cola
+    enQueues (valor) {
+        const NewNodo = new Nodo(valor);
+
+        if (this.length === 0) {
+            this.bottom = NewNodo;
+            this.top = NewNodo;
+            this.length++;
+            return this;
+        }
+
+        this.top.next = NewNodo;
+        this.top = NewNodo;
+        this.length++;
+        return this;
+    }
+
+    // Mostrar el último elemento
+    getBottom () {
+        return this.top;
+    }
+
+    // Eliminar al primero
+    deQueues () {
+        // Validar si hay elementos para borrar
+        if (this.length === 0) {
+            return "No hay datos para borrar";
+        }
+
+        // Validar si al borrar la Pila quedará vacia
+        if (this.length === 1) {
+            this.top = null;
+            this.bottom = null;
+            this.length--;
+            return this;
+        }
+        
+        // Borrar
+        this.bottom = this.bottom.next;
+        this.length--;
+        return this;
+    }
+}
+
+const Newcola = new Cola();
+Newcola.enQueues(1)
+Newcola.enQueues(2)
+Newcola.enQueues(3)
+// Result: 1 (bottom) - 2 - 3 (top) [length=3]
+
+Newcola.deQueues()
+// Result: 2 (bottom) - 3 (top) [length=2]
+
+Newcola.deQueues()
+// Result: 3 (bottom)(top) [length=1]
+
+Newcola.deQueues()
+// Result: "No hay datos para borrar" [length=0]
+```
