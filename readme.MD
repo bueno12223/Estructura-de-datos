@@ -324,3 +324,44 @@ Newcola.deQueues()
 Newcola.deQueues()
 // Result: "No hay datos para borrar" [length=0]
 ```
+
+# Trees 🌳
+
+---
+
+### Anatomía de un tree
+
+![https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20%2880%29-94056aa2-6210-4293-ba89-da62b71d5681.jpg](https://static.platzi.com/media/user_upload/Captura%20de%20pantalla%20%2880%29-94056aa2-6210-4293-ba89-da62b71d5681.jpg)
+
+- Root o Raiz: Es el nodo superior de todo el arbol, si sabes HTML(lo mas probable es que si) seria como en el DOM el HTML es el elemento root o más bien el padre
+- Parent / Padre: Contienen ramas que apuntan a otros nodos
+- Child / Hijos: Es un nodo conectado directamente con otro cuando se aleja de la raiz
+- Lead / Hojas: Un nodo sin hijos
+- Sibling / Hermanos: Son un conjunto de nodos que vienen del mismo padre
+- Sub Tree / Sub Arbol: Son arboles que estan dentro de nodos
+- Arm / Baso: Es la conexión entre un nodo y otro
+
+### Perfect binary tree
+
+Este tipo de arboles en concreto lo que hacen es que sus nodos se van multiplicando y van aumentando y a esto se le llama árbol balanceado porque tiene la misma cantidad de nodos en ambos lados, un ejemplo visual seria algo así:
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7298a844-d34b-4714-ba84-a82c22cf1126/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7298a844-d34b-4714-ba84-a82c22cf1126/Untitled.png)
+
+### Binary Search Trees
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3ffde0f2-d11c-4106-9885-4e36587c01df/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3ffde0f2-d11c-4106-9885-4e36587c01df/Untitled.png)
+
+- Una de las reglas es que los números que van de aumento van en el derecho y decremento en el lado izquierdo
+- Nos ayuda a buscar entre grandes cantidades de datos que podemos llegar a tener con la técnica “**divide y vencerás**”
+
+### Binary Search Trees: unbalanced tree
+
+Existen árboles que no están balanceados, para ello existen ciertos algoritmos que nos ayudan a balancearlos
+
+---
+
+Los **métodos** que contienen esta estructura de datos son los siguientes:
+
+- Search ⇒ Buscar por un nodo
+- Insert ⇒ Insertar un nodo
+- Delete ⇒ Borrar un nodo
