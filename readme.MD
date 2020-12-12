@@ -365,3 +365,98 @@ Los **métodos** que contienen esta estructura de datos son los siguientes:
 - Search ⇒ Buscar por un nodo
 - Insert ⇒ Insertar un nodo
 - Delete ⇒ Borrar un nodo
+
+
+### Edge List
+
+- Esta manera se representará de una lista de arrays que van a representar nuestro grafo
+- Cada array sera una conexión de nuestro grafo
+
+```jsx
+const graph = [
+  [0, 2],
+  [2, 3],
+  [2, 1],
+  [1, 3]
+];
+
+```
+
+### Adjacent List
+
+- Cada nodo sera un índice, por lo cual los representamos en cada índice de la lista con que nodos está conectado
+
+```jsx
+//            ===== INDICES =====
+//              0    1       2          3
+const graph = [[2], [2, 3], [0, 1, 3], [1, 2]];
+
+```
+
+- también se puede representar en un objeto o hash tables
+- Esto nos ayuda de una manera más visual porque tenemos numerados los indices
+- Todo va por orden
+
+### Hash Table
+
+Ponemos el índice y con quien conecta
+
+```jsx
+const graph = {
+  0: [2],
+  1: [2, 3],
+  2: [0, 1, 3],
+  3: [1, 2]
+};
+
+```
+
+### Adjacent Matrix
+
+- Es una representación en una matriz de que nodos están conectados, pero esta funciona con ceros y unos
+    - cada 0 representara una conexión nula
+    - cada 1 representa que hay una conexión con dicho nodo
+- Representación en matriz
+
+```jsx
+const graph = [
+// ==== NODOS ====
+// 1  2  3  4 
+  [0, 0, 1, 0], // 0
+  [0, 0, 1, 1], // 1
+  [1, 1, 0, 1], // 2
+  [0, 1, 1, 0]  // 3
+];
+
+```
+
+- representación en un objeto
+
+```jsx
+const graph = {
+  0: [0, 0, 1, 0],
+  1: [0, 0, 1, 1],
+  2: [1, 1, 0, 1],
+  3: [0, 1, 1, 0]
+};
+```
+
+### Como se ve en código
+
+```jsx
+class graphs {
+    constructor(){
+        this.nodes = 0
+        this.adjasonList = {};
+    }
+    addVertex(value){
+        this.adjasonList[value] = []
+        this.nodes++
+    }
+    addEdge(node1, node2){
+        this.adjasonList[node1].push(node2)
+        this.adjasonList[node2].push(node1)
+    }
+}
+const myGraph = new graphs()
+```
