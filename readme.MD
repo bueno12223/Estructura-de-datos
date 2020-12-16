@@ -13,15 +13,15 @@
 - Los arrays son como una lista con indices numerales consecutivas
 - Tambien son conocidas como listas
 - Tenemos diferentes métodos construidos por el lenguaje
-    - Push ⇒ Agregar un elemento al final del array
-    - Pop ⇒ Borra el último elemento
-    - Unshift ⇒ Agrega un elemento al inicio del array
-    - Shift ⇒ Borra el primer elemento
-    - Splice ⇒ Agrega un elemento en una parte del array
+  - Push ⇒ Agregar un elemento al final del array
+  - Pop ⇒ Borra el último elemento
+  - Unshift ⇒ Agrega un elemento al inicio del array
+  - Shift ⇒ Borra el primer elemento
+  - Splice ⇒ Agrega un elemento en una parte del array
 - Si nosotros agregamos un elemento al inicio debe haber ciertas operaciones que deben suceder
 - Existen dos formas de arrays<h3>Array estático</h3>
-    - **Estáticos** ⇒ Definimos cuantos slots exactamente vamos a usar
-    - **Dinámicos** ⇒ JS Maneja de forma por defecto
+  - **Estáticos** ⇒ Definimos cuantos slots exactamente vamos a usar
+  - **Dinámicos** ⇒ JS Maneja de forma por defecto
 
 ![https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0018-bb9c50e8-c3c7-4a7b-85d7-7c724472edce.jpg](https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0018-bb9c50e8-c3c7-4a7b-85d7-7c724472edce.jpg)
 
@@ -31,8 +31,8 @@ La computadora sabe de dónde a donde esta cada información o en este caso el n
 
 - La computadora de inicio es darle una cantidad de slots considerable
 - Si es que pasara el límite buscara más espacio en memoria del que está pidiendo la lista
-    - Para eso copiara la información y la trasladara a donde encuentre conveniente
-    - Los espacios anteriores los libera
+  - Para eso copiara la información y la trasladara a donde encuentre conveniente
+  - Los espacios anteriores los libera
 
 Es posible terminar o llenar una memoria con un array dinánimo
 
@@ -96,12 +96,12 @@ tiene el mismo comportamiento que una simply linked list, pero con la particular
 ![https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0048-79182a24-5d63-4cce-9c4e-b57a1603b0f7.jpg](https://static.platzi.com/media/user_upload/slides_estructuras_datos_js_page-0048-79182a24-5d63-4cce-9c4e-b57a1603b0f7.jpg)
 
 - Tiene tres valores, los que ya conocemos
-    - Value
-    - Next
+  - Value
+  - Next
 - El que caracteriza es el valor **previo**
-    - Prev
+  - Prev
 - Esto nos ayuda si es que deseamos buscar un valor en particular nos evita volver a recorrer la estructura
-    - Es decir que para buscar cosas es más rápido
+  - Es decir que para buscar cosas es más rápido
 - La forma en la que se guarda en memoria los objetos es similar a singly pero con dos direcciones
 
 > ¿Cómo se guarda esto en memoria?
@@ -114,75 +114,75 @@ un nodo conoce su previo y anterior
 
 ```jsx
 class Node {
-	constructor(value) {
-		this.value = value;
-		this.next = null;
-		this.prev = null; // ahora hay un nuevo valor llamado prev
-	}
+ constructor(value) {
+  this.value = value;
+  this.next = null;
+  this.prev = null; // ahora hay un nuevo valor llamado prev
+ }
 }
 
 class MyDoubleLinkedList {
-	constructor(value) {
-		this.head = {
-			value: value,
-			next: null,
-			prev: null // como solo ingresamos uno no hay prev
-		}
-		this.tail = this.head;
-		this.length = 1;
-	}
-	append(value) {
-		const newNode = new Node(value);
-		newNode.prev = this.tail; // en esta linea de codigo el
-	// head aun es el valor previo
-		this.tail.next = newNode;
-		this.tail = newNode;
+ constructor(value) {
+  this.head = {
+   value: value,
+   next: null,
+   prev: null // como solo ingresamos uno no hay prev
+  }
+  this.tail = this.head;
+  this.length = 1;
+ }
+ append(value) {
+  const newNode = new Node(value);
+  newNode.prev = this.tail; // en esta linea de codigo el
+ // head aun es el valor previo
+  this.tail.next = newNode;
+  this.tail = newNode;
 
-		this.length++;
+  this.length++;
 
-		return this;
-	}
+  return this;
+ }
 
-	prepend(value) {
-		const newNode = new Node(value);
-		if (this.head) {
-			this.head.prev = newNode;
-			newNode.next = this.head
-		} else {
-			this.tail = newNode;
-		}
+ prepend(value) {
+  const newNode = new Node(value);
+  if (this.head) {
+   this.head.prev = newNode;
+   newNode.next = this.head
+  } else {
+   this.tail = newNode;
+  }
 
-		this.head = newNode;
+  this.head = newNode;
 
-		this.length++;
-		return this;
-	}
+  this.length++;
+  return this;
+ }
 
-	deleteFirst() {
-		if (!this.head) { return null }
+ deleteFirst() {
+  if (!this.head) { return null }
 
-		this.head = this.head.next;
-		if (this.head) {
-			this.head.prev = null;
-		} else {
-			this.tail = null;
+  this.head = this.head.next;
+  if (this.head) {
+   this.head.prev = null;
+  } else {
+   this.tail = null;
 
-		}
-		this.length--;
-		return this;
-	}
+  }
+  this.length--;
+  return this;
+ }
 
-	deleteLast() {
-		if (!this.tail) { return null }
-		this.tail = this.tail.prev;
-		if (this.tail) {
-			this.tail.next = null;
-		} else {
-			this.head = null;
-		}
-		this.length--;
-		return this;
-	}
+ deleteLast() {
+  if (!this.tail) { return null }
+  this.tail = this.tail.prev;
+  if (this.tail) {
+   this.tail.next = null;
+  } else {
+   this.head = null;
+  }
+  this.length--;
+  return this;
+ }
 
 }
 let myDoublyLinkedList = new MyDoubleLinkedList(1);
@@ -366,7 +366,6 @@ Los **métodos** que contienen esta estructura de datos son los siguientes:
 - Insert ⇒ Insertar un nodo
 - Delete ⇒ Borrar un nodo
 
-
 ### Edge List
 
 - Esta manera se representará de una lista de arrays que van a representar nuestro grafo
@@ -414,8 +413,8 @@ const graph = {
 ### Adjacent Matrix
 
 - Es una representación en una matriz de que nodos están conectados, pero esta funciona con ceros y unos
-    - cada 0 representara una conexión nula
-    - cada 1 representa que hay una conexión con dicho nodo
+  - cada 0 representara una conexión nula
+  - cada 1 representa que hay una conexión con dicho nodo
 - Representación en matriz
 
 ```jsx
